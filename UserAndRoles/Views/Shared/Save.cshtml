@@ -1,0 +1,46 @@
+﻿@model UserAndRoles.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Save</h2>
+@using (Html.BeginForm("Save", "Shared", FormMethod.Post, new {  role = "form"  }))
+{
+     if (Model != null && Model.Id !=null)
+    {
+        @Html.HiddenFor(a => a.Id)
+    }
+
+    <div class="form-group">
+        <label>First Name</label>
+        @Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.UserName)
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        @Html.TextBoxFor(a => a.Phonenumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.PhoneNumber)
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        @Html.TextBoxFor(a => a.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Email)
+    </div>
+    @*<div class="form-group">
+        <label>City</label>
+        @Html.TextBoxFor(a => a.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.City)
+    </div>
+    <div class="form-group">
+        <label>Country</label>
+        @Html.TextBoxFor(a => a.Country, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Country)
+    </div>*@
+
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+}
+
